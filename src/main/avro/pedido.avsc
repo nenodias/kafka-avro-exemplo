@@ -1,0 +1,53 @@
+{
+  "type": "record",
+  "name": "PedidoAvro",
+  "namespace": "org.example.avro.model",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "pessoa",
+      "type": {
+        "type": "record",
+        "name": "PessoaAvro",
+        "fields": [
+          {
+            "name": "nome",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "produtos",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "ProdutoAvro",
+          "fields": [
+            {
+              "name": "nome",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "default": []
+    },
+    {
+      "name": "status",
+      "type": {
+        "type": "enum",
+        "name": "StatusAvro",
+        "symbols": [
+          "CRIADO",
+          "ENTREGUE",
+          "CANCELADO"
+        ]
+      }
+    }
+  ]
+}
